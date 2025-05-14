@@ -1,10 +1,9 @@
 name: workflow-1 run 3 job for each environment (Dev, QA and Prod) on pull request
 
 on:
-  pull_request_review:
-    types: [submitted, edited]
+  pull_request:
     branches:
-      - main
+    - main
 
 jobs:
       
