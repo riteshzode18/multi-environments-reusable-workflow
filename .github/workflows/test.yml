@@ -24,7 +24,7 @@ jobs:
     # environment: ${{ inputs.environment }}
     with:
       image_name: my-app
-      image_tag: test
+      image_tag: ${{ vars.ENVIRONMENT_NAME }}-$(git rev-parse --short HEAD)
       file_path: ./dev-riteshzode/Dockerfile
       
           
