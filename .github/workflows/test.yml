@@ -19,7 +19,7 @@ jobs:
           echo ${{ vars.ENVIRONMENT_NAME }}
           echo ${{ vars.DOCKER_FILE_PATH }}
           # echo hello world
-          # echo "path=${{ vars.DOCKER_FILE_PATH }}" >> $GITHUB_ENV
+          echo "path=${{ vars.DOCKER_FILE_PATH }}" >> $GITHUB_ENV
 
 
 # jobs:
@@ -29,8 +29,7 @@ jobs:
       image_name: my-app
       image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
       # file_path: ./dev-riteshzode/Dockerfile
-      file_path: ${{ vars.DOCKER_FILE_PATH }}
-      environment: Dev
+      file_path: ${{ env.path }}
 
       
           
