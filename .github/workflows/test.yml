@@ -18,8 +18,8 @@ jobs:
       run: |
           echo ${{ vars.ENVIRONMENT_NAME }}
           echo ${{ vars.DOCKER_FILE_PATH }}
-          echo hello world
-          echo "path=${{ vars.DOCKER_FILE_PATH }}" >> $GITHUB_ENV
+          # echo hello world
+          # echo "path=${{ vars.DOCKER_FILE_PATH }}" >> $GITHUB_ENV
 
 # jobs:
   call-reusable-workflow:
@@ -27,6 +27,6 @@ jobs:
     with:
       image_name: my-app
       image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
-      file_path: ${{ env.path }}
+      file_path: ./dev-riteshzode/Dockerfile
       
           
