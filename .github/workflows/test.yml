@@ -14,16 +14,17 @@ jobs:
     environment: ${{ inputs.environment }}
     steps:
     # - uses: actions/checkout@v4
-    - name: print env
+    - name: print environment variables of ${{ vars.ENVIRONMENT_NAME }} environment
       run: |
           echo ${{ vars.ENVIRONMENT_NAME }}
+          echo ${{ vars.DOCKER_FILE_PATH }}
 
-# jobs:
-  call-reusable-workflow:
-    uses: ./.github/workflows/build-docker.yml
-    with:
-      image_name: my-app
-      image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
-      file_path: ./dev-riteshzode/Dockerfile
+# # jobs:
+#   call-reusable-workflow:
+#     uses: ./.github/workflows/build-docker.yml
+#     with:
+#       image_name: my-app
+#       image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
+#       file_path: ./dev-riteshzode/Dockerfile
       
           
