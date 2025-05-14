@@ -4,19 +4,23 @@ name: multi env deploy manula trigger workflow
 #   push:
 #     branches: [ "main" ]
 
-on: 
+
+on:
   workflow_dispatch:
     inputs:
-      environment: 
-        description: "Select environment to deploy' 
-        required: true
-        type: choice
-        default: Dev
-        options: 
-          - Dev
-          - QA
-          - Prod
-
+      environment:
+        type: environment
+        description: Select the environment
+      boolean:
+        type: boolean
+        description: True or False
+      choice:
+        type: environment
+        description: chose the envirnment
+        options:
+        - Dev
+        - QA
+        - Prod
 # jobs:
 #   envirnment_demo:
 #     runs-on: ubuntu-latest
