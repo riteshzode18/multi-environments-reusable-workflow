@@ -4,51 +4,73 @@ name: multi env deploy manula trigger workflow
 #   push:
 #     branches: [ "main" ]
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch
+    inputs:
+      environment: 
+        description: "Select environment to deploy'
+         required: true
+         type: choice
+         default: Dev
+         type: choice
+         options:
+           - Dev
+           - QA
+           - Prod
 
 jobs:
+  envirnment_demo:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    # - uses: actions/checkout@v4
-    - name: print env
-      run: echo ${{ vars.ENVIRONMENT_NAME }}
+# jobs:
+
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     # - uses: actions/checkout@v4
+#     - name: print env
+#       run: echo ${{ vars.ENVIRONMENT_NAME }}
       
-  deploy-dev:
-    runs-on: ubuntu-latest
-    environment: Dev
-    steps:
-    # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+#   deploy-dev:
+#     runs-on: ubuntu-latest
+#     environment: Dev
+#     steps:
+#     # - uses: actions/checkout@v4
+#     - name: print env
+#       run: |
+#           echo ${{ vars.ENVIRONMENT_NAME }}
       
-  deploy-QA:
-    runs-on: ubuntu-latest
-    environment: QA
-    steps:
-    # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+#   deploy-QA:
+#     runs-on: ubuntu-latest
+#     environment: QA
+#     steps:
+#     # - uses: actions/checkout@v4
+#     - name: print env
+#       run: |
+#           echo ${{ vars.ENVIRONMENT_NAME }}
           
-  deploy-prod:
-    runs-on: ubuntu-latest
-    environment: Prod
-    steps:
-    # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+#   deploy-prod:
+#     runs-on: ubuntu-latest
+#     environment: Prod
+#     steps:
+#     # - uses: actions/checkout@v4
+#     - name: print env
+#       run: |
+#           echo ${{ vars.ENVIRONMENT_NAME }}
 
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    # - uses: actions/checkout@v4
-    - name: print test
-      run: echo testing
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#     # - uses: actions/checkout@v4
+#     - name: print test
+#       run: echo testing
       
 
 
