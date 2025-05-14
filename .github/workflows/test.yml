@@ -20,12 +20,12 @@ jobs:
           echo ${{ vars.DOCKER_FILE_PATH }}
           echo hello world
 
-# # jobs:
-#   call-reusable-workflow:
-#     uses: ./.github/workflows/build-docker.yml
-#     with:
-#       image_name: my-app
-#       image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
-#       file_path: ./dev-riteshzode/Dockerfile
+# jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/build-docker.yml
+    with:
+      image_name: my-app
+      image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
+      file_path: ${{ vars.DOCKER_FILE_PATH }}
       
           
