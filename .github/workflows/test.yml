@@ -16,8 +16,9 @@ jobs:
     # - uses: actions/checkout@v4
     - name: print environment variables of ${{ vars.ENVIRONMENT_NAME }} environment
       run: |
-          # echo ${{ vars.ENVIRONMENT_NAME }}
+          echo ${{ vars.ENVIRONMENT_NAME }}
           echo ${{ vars.DOCKER_FILE_PATH }}
+          echo hello world
 
 # # jobs:
 #   call-reusable-workflow:
