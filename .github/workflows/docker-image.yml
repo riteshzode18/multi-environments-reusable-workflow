@@ -9,6 +9,33 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    # - uses: actions/checkout@v4
     - name: print env
       run: echo ${{ vars.ENVIRONMENT_NAME }}
+      
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
+      
+  deploy-QA:
+    runs-on: ubuntu-latest
+    environment: QA
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
+          
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: Prod
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
