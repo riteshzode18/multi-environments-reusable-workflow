@@ -24,7 +24,7 @@ jobs:
     # environment: ${{ inputs.environment }}
     with:
       image_name: my-app
-      image_tag: ${{ vars.ENVIRONMENT_NAME }}
+      image_tag: ${{ vars.ENVIRONMENT_NAME }}+1
       file_path: ./dev-ritesh/Dockerfile
       
           
