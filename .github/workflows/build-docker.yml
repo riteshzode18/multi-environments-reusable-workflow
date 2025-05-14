@@ -12,6 +12,7 @@ on:
       file_path:
         required: true
         type: string
+        # default: ./Dockerfile
 
 jobs:
   build:
