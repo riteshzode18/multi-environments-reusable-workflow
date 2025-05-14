@@ -1,0 +1,38 @@
+name: workflow-1 run 3 job for each environment (Dev, QA and Prod) on pull request
+
+on:
+  pull_request_review:
+    types: [submitted, edited]
+    branches:
+      - main
+
+jobs:
+      
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
+      
+  deploy-QA:
+    runs-on: ubuntu-latest
+    environment: QA
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
+          
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: Prod
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
+
+
