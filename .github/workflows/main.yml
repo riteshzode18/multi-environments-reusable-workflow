@@ -5,28 +5,27 @@ name: multi env deploy manula trigger workflow
 #     branches: [ "main" ]
 
 on: 
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       environment: 
-        description: "Select environment to deploy'
-         required: true
-         type: choice
-         default: Dev
-         type: choice
-         options:
-           - Dev
-           - QA
-           - Prod
+        description: "Select environment to deploy' 
+        required: true
+        type: choice
+        default: Dev
+        options: 
+          - Dev
+          - QA
+          - Prod
 
-jobs:
-  envirnment_demo:
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-    steps:
-    # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+# jobs:
+#   envirnment_demo:
+#     runs-on: ubuntu-latest
+#     environment: ${{ inputs.environment }}
+#     steps:
+#     # - uses: actions/checkout@v4
+#     - name: print env
+#       run: |
+#           echo ${{ vars.ENVIRONMENT_NAME }}
 
 # jobs:
 
