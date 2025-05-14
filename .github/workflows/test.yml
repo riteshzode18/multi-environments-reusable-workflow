@@ -19,6 +19,7 @@ jobs:
           echo ${{ vars.ENVIRONMENT_NAME }}
           echo ${{ vars.DOCKER_FILE_PATH }}
           echo hello world
+          echo ${{ vars.DOCKER_FILE_PATH }} >> $GITHUB_ENV
 
 # jobs:
   call-reusable-workflow:
@@ -26,6 +27,6 @@ jobs:
     with:
       image_name: my-app
       image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
-      file_path: ${{ vars.DOCKER_FILE_PATH }}
+      file_path: ${{ env.GITHUB_ENV }}
       
           
