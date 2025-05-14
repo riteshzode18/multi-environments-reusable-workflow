@@ -25,6 +25,6 @@ jobs:
     with:
       image_name: my-app
       image_tag: test
-      file_path: ./dev-ritesh/Dockerfile
+      file_path: ./dev-riteshzode/Dockerfile
       
           
