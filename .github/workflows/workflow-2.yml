@@ -12,24 +12,29 @@ jobs:
     environment: Dev
     steps:
     # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+    - name: build Dev part
+      run: echo "build Dev part"
+    - name: deploy Dev part
+      run: echo "deploy Dev part"
       
   deploy-QA:
     runs-on: ubuntu-latest
+    needs: deploy-dev
     environment: QA
     steps:
     # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+    - name: build QA part
+      run: echo "build QA part"
+    - name: deploy QA part
+      run: echo "deploy QA part"
           
   deploy-prod:
     runs-on: ubuntu-latest
+    needs: deploy-QA
     environment: Prod
     steps:
     # - uses: actions/checkout@v4
-    - name: print env
-      run: |
-          echo ${{ vars.ENVIRONMENT_NAME }}
+    - name: build Prod part
+      run: echo "build Prod part"
+    - name: deploy Prod part
+      run: echo "deploy Prod part"
