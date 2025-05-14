@@ -27,10 +27,16 @@ jobs:
       run: echo "build QA part"
     - name: deploy QA part
       run: echo "deploy QA part"
+
+  manual-approval:
+    name: Manual Approval
+    runs-on: ubuntu-latest
+    needs: deploy-QA
+    if: success() 
           
   deploy-prod:
     runs-on: ubuntu-latest
-    needs: deploy-QA
+    needs: manual-approval
     environment: Prod
     steps:
     # - uses: actions/checkout@v4
