@@ -1,0 +1,30 @@
+name: test deploy manual trigger workflow
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        description: Select the environment
+    
+jobs:
+  envirnment_demo:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
+
+# jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/build-docker.yml
+    # environment: ${{ inputs.environment }}
+    with:
+      image_name: my-app
+      image_tag: ${{ vars.ENVIRONMENT_NAME }}
+      file_path: ./dev-ritesh/Dockerfile
+      
+          
