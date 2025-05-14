@@ -21,10 +21,9 @@ jobs:
 # jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/build-docker.yml
-    # environment: ${{ inputs.environment }}
     with:
       image_name: my-app
-      image_tag: ${{ vars.ENVIRONMENT_NAME }}-$(git rev-parse --short HEAD)
+      image_tag: ${{ inputs.environment }}-$(git rev-parse --short HEAD)
       file_path: ./dev-riteshzode/Dockerfile
       
           
