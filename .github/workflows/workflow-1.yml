@@ -20,6 +20,7 @@ jobs:
   deploy-QA:
     runs-on: ubuntu-latest
     environment: QA
+    needs: deploy-dev
     steps:
     # - uses: actions/checkout@v4
     - name: print env
@@ -29,6 +30,7 @@ jobs:
   deploy-prod:
     runs-on: ubuntu-latest
     environment: Prod
+    needs: deploy-QA
     steps:
     # - uses: actions/checkout@v4
     - name: print env
