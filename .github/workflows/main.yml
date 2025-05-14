@@ -11,25 +11,25 @@ on:
       environment:
         type: environment
         description: Select the environment
-      boolean:
-        type: boolean
-        description: True or False
-      choice:
-        type: environment
-        description: chose the envirnment
-        options:
-        - Dev
-        - QA
-        - Prod
-# jobs:
-#   envirnment_demo:
-#     runs-on: ubuntu-latest
-#     environment: ${{ inputs.environment }}
-#     steps:
-#     # - uses: actions/checkout@v4
-#     - name: print env
-#       run: |
-#           echo ${{ vars.ENVIRONMENT_NAME }}
+      # boolean:
+      #   type: boolean
+      #   description: True or False
+      # choice:
+      #   type: environment
+      #   description: chose the envirnment
+      #   options:
+      #   - Dev
+      #   - QA
+      #   - Prod
+jobs:
+  envirnment_demo:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+    # - uses: actions/checkout@v4
+    - name: print env
+      run: |
+          echo ${{ vars.ENVIRONMENT_NAME }}
 
 # jobs:
 
