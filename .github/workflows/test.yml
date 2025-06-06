@@ -18,21 +18,11 @@ jobs:
           echo ${{ vars.ENVIRONMENT_NAME }}
           echo ${{ vars.DOCKER_FILE_PATH }}
 
-  # call-reusable-workflow:
-  #   uses: ./.github/workflows/build-docker.yml
-  #   with:
-  #     image_name: my-app
-  #     image_tag: ${{ inputs.environment }}-${{ github.sha }}
-  #     file_path: ${{ vars.DOCKER_FILE_PATH }}
-  #     # file_path: ./dev-riteshzode/Dockerfile
-  #     environment: ${{ inputs.environment }}
-  #   environment: ${{ inputs.environment }}
 
   call-reusable-workflow:
     uses: ./.github/workflows/build-docker.yml
     with:
-      image_name: my-app
-      image_tag: ${{ inputs.environment }}-${{ github.sha }}
-      file_path: ${{ vars.DOCKER_FILE_PATH }}   # <--- This is correct!
+      # image_name: my-app
+      # image_tag: ${{ inputs.environment }}-${{ github.sha }}
+      # file_path: ${{ vars.DOCKER_FILE_PATH }}
       environment: ${{ inputs.environment }}
-    # environment: ${{ inputs.environment }}
