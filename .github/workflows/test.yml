@@ -22,7 +22,7 @@ jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/build-docker.yml
     with:
-      # image_name: my-app
+      image_name: my-app
       # image_tag: ${{ inputs.environment }}-${{ github.sha }}
       # file_path: ${{ vars.DOCKER_FILE_PATH }}
       environment: ${{ inputs.environment }}
