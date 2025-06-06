@@ -27,4 +27,4 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build . --file "${{ vars.DOCKER_FILE_PATH }}" --tag "my-app-${{ vars.ENVIRONMENT_NAME }}:${{ github.sha }}"
+          docker build . --file "${{ vars.DOCKER_FILE_PATH }}" --tag "my-app-${{ inputs.environment }}:${{ vars.ENVIRONMENT_NAME }}-${{ github.sha }}"
