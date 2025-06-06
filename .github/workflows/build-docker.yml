@@ -3,16 +3,16 @@ name: Docker Build Image
 on:
   workflow_call:
     inputs:
-      image_name:
-        required: true
-        type: string
-      image_tag:
-        required: true
-        type: string
-      file_path:
-        required: true
-        type: string
-        default: ./Dockerfile
+      # image_name:
+      #   required: true
+      #   type: string
+      # image_tag:
+      #   required: true
+      #   type: string
+      # file_path:
+      #   required: true
+      #   type: string
+      #   default: ./Dockerfile
       environment:
         required: false
         type: string
@@ -27,4 +27,4 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build . --file "${{ vars.DOCKER_FILE_PATH }}" --tag "${{ inputs.image_name }}:${{ inputs.image_tag }}"
+          docker build . --file "${{ vars.DOCKER_FILE_PATH }}" --tag "my-app-${{ vars.ENVIRONMENT_NAME }}:${{ github.sha }}"
