@@ -13,15 +13,18 @@ on:
         required: true
         type: string
         # default: ./Dockerfile
+      environment:
+        required: false
+        type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: |
-         docker build . --file ${{ inputs.file_path }} --tag ${{ inputs.image_name }}:${{ inputs.image_tag }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        
+      - name: Build the Docker image
+        run: |
+          docker build . --file "${{ inputs.file_path }}" --tag "${{ inputs.image_name }}:${{ inputs.image_tag }}"
